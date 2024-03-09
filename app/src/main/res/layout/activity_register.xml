@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul_fondo"
+    tools:context=".ui.RegisterActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20dp"
+        android:backgroundTint="@color/white"
+        android:elevation="@dimen/_10dp"
+        app:cardCornerRadius="@dimen/_15dp"
+        app:cardElevation="@dimen/_10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/txt_usuario_registro"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15dp"
+                android:fontFamily="@font/sansita"
+                android:text="@string/nombre_usuario"
+                android:textSize="@dimen/_18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.301" />
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_20dp"
+                android:hint="@string/hint_usuario"
+                app:boxCornerRadiusBottomStart="@dimen/_20dp"
+                app:boxCornerRadiusTopEnd="@dimen/_20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_usuario_registro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txt_email"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15dp"
+                android:fontFamily="@font/sansita"
+                android:text="@string/correo_electronico"
+                android:textSize="@dimen/_18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_usuario"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_20dp"
+                android:hint="@string/ingresa_tu_email"
+                app:boxCornerRadiusBottomStart="@dimen/_20dp"
+                app:boxCornerRadiusTopEnd="@dimen/_20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_email_registro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txt_contrasena_registro"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15dp"
+                android:fontFamily="@font/sansita"
+                android:text="@string/contrase_a"
+                android:textSize="@dimen/_18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.301" />
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_20dp"
+                android:hint="@string/escribe_tu_contrase_a"
+                app:boxCornerRadiusBottomStart="@dimen/_20dp"
+                app:boxCornerRadiusTopEnd="@dimen/_20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_contrasena_registro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15dp"
+                android:fontFamily="@font/sansita"
+                android:text="@string/resgistrate"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_contrasena"
+                app:layout_constraintVertical_bias="0.138" />
+
+
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

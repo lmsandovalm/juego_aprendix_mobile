@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Juego_aprendix_mobile</string>
+    <string name="nombre_usuario">Nombre de Usuario</string>
+    <string name="hint_usuario">Nombre de usuario o correo electronico</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="escribe_tu_contrase_a">Escribe tu contraseña</string>
+    <string name="btn_inicia_sesion">Inicia sesion</string>
+    <string name="correo_electronico">Correo Electronico</string>
+    <string name="ingresa_tu_email">Ingresa tu email</string>
+    <string name="resgistrate">Resgistrate</string>
+</resources>
