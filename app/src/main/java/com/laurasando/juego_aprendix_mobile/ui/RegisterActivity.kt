@@ -37,6 +37,7 @@ class RegisterActivity : AppCompatActivity() {
         val password = binding.edtContrasenaRegistro.text.toString()
         val role = "admin" //cambiar depues a un rol por defecto diferente a admin
         val requestBody = RegisterRequest(name, email, password, role)
+
         //llamamos al servicio que vamos a consumir ('registerNewUser')
         val apiService: ApiServices = ApiClient.retrofitHelper().create(ApiServices::class.java)
         apiService.registerNewUser(requestBody)?.enqueue(object : Callback<UserModel?> {

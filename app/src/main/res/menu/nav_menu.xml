@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/perfil_icono"
+            android:title="Perfil"/>
+
+        <item
+            android:id="@+id/nav_cursos"
+            android:icon="@drawable/cursos_icono"
+            android:title="Cursos"/>
+
+        <item
+            android:id="@+id/nav_progreso"
+            android:icon="@drawable/progreso_icono"
+            android:title="Tu Progreso"/>
+
+    </group>
+
+    <item
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_salir"
+                android:icon="@drawable/salir_icono"
+                android:title="Cerrar sesion"/>
+        </menu>
+    </item>
+
+</menu>

@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.laurasando.juego_aprendix_mobile.data.ApiClient
 import com.laurasando.juego_aprendix_mobile.data.interfaces.ApiServices
 import com.laurasando.juego_aprendix_mobile.data.models.LoginRequest
+import com.laurasando.juego_aprendix_mobile.data.models.UserModel
 import com.laurasando.juego_aprendix_mobile.data.models.UserResponse
 import com.laurasando.juego_aprendix_mobile.databinding.ActivityMainBinding
+import com.laurasando.juego_aprendix_mobile.navigation.MenuNavegacion
 import com.laurasando.juego_aprendix_mobile.ui.RegisterActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -63,12 +65,19 @@ class MainActivity : AppCompatActivity() {
                 Log.e("Laura", "onResponse: $response")
                 Toast.makeText(this@MainActivity, "${response.body()?.user?.name}", Toast.LENGTH_SHORT).show()
                 if (response.isSuccessful) {
-                    Toast.makeText(
+                    val user = response.body()?.user
+                    val nombreUsuario = user?.name ?: "Usuario"
+                   Toast.makeText(
                         this@MainActivity,
-                        "Bienvenido ${response.body()?.user?.name}",
+                        "Bienvenido $nombreUsuario",
                         Toast.LENGTH_SHORT
                     ).show()
+                    val intent = Intent(this@MainActivity, MenuNavegacion::class.java)
 
+                    intent.putExtra("nombreUsuario", user?.name)
+                    intent.putExtra("correoUsuario", user?.email)
+                    startActivity(intent)
+                    finish()
                 } else {
 
                     Toast.makeText(this@MainActivity, "Credenciales invalidas", Toast.LENGTH_SHORT)

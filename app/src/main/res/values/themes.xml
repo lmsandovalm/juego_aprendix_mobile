@@ -2,7 +2,9 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Juego_aprendix_mobile" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/azul_splash</item>
+        <item name="colorPrimaryVariant">@color/azul_splash</item>
+        <item name="android:statusBarColor">@color/azul_splash</item>
     </style>
 
     <style name="Theme.Juego_aprendix_mobile" parent="Base.Theme.Juego_aprendix_mobile" />
@@ -22,4 +24,13 @@
             @style/Theme.Juego_aprendix_mobile
         </item>
     </style>
+
+    <style name="Theme.Juego_aprendix_mobile.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Juego_aprendix_mobile.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Juego_aprendix_mobile.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
