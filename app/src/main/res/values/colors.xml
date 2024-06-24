@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="negro">#000000</color>
+    <color name="moradofondo">#3533CD</color>
     <color name="white">#FFFFFFFF</color>
     <color name="azul_fondo">#8fe3ff</color>
     <color name="azul_borde">#15297c</color>
     <color name="azul_splash">#050B30</color>
+    <color name="azul_bottom">#803533CD</color>
+    <color name="white_background">#94FBFBF9</color>
+    <color name="transparente">#00FFFFFF</color>
+    <color name="fondoPantallas">#650C4A6E</color>
+    <color name="chat">#FFC107</color>
+    <color name="tarjetas">#F0F0F0</color>
+    <color name="fondo">#FAFAFA</color>
+    <color name="texto">#212121</color>
+    <color name="gris">#757575</color>
+
 
 
 </resources>

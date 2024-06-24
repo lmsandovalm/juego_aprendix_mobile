@@ -4,22 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul_fondo"
+    android:background="@drawable/background"
     tools:context=".ui.RegisterActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formulario_de_registro"
+        android:fontFamily="@font/sansita"
+        android:textColor="@color/white"
+        android:padding="@dimen/_20dp"
+        android:layout_margin="@dimen/_15dp"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_20dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/white_background"
         android:elevation="@dimen/_10dp"
         app:cardCornerRadius="@dimen/_15dp"
         app:cardElevation="@dimen/_10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.774">
 
 
         <LinearLayout
@@ -37,6 +54,7 @@
                 android:layout_margin="@dimen/_15dp"
                 android:fontFamily="@font/sansita"
                 android:text="@string/nombre_usuario"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -51,11 +69,14 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_20dp"
                 android:hint="@string/hint_usuario"
+                android:textColorHint="@color/azul_splash"
                 app:boxCornerRadiusBottomStart="@dimen/_20dp"
-                app:boxCornerRadiusTopEnd="@dimen/_20dp">
+                app:boxCornerRadiusTopEnd="@dimen/_20dp"
+                app:hintTextAppearance="@font/sansita">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_usuario_registro"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -69,6 +90,7 @@
                 android:layout_margin="@dimen/_15dp"
                 android:fontFamily="@font/sansita"
                 android:text="@string/correo_electronico"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_20dp"
                 android:hint="@string/ingresa_tu_email"
+                android:textColorHint="@color/azul_splash"
                 app:boxCornerRadiusBottomStart="@dimen/_20dp"
                 app:boxCornerRadiusTopEnd="@dimen/_20dp">
 
@@ -101,6 +124,7 @@
                 android:layout_margin="@dimen/_15dp"
                 android:fontFamily="@font/sansita"
                 android:text="@string/contrase_a"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -115,6 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_20dp"
                 android:hint="@string/escribe_tu_contrase_a"
+                android:textColorHint="@color/azul_splash"
                 app:boxCornerRadiusBottomStart="@dimen/_20dp"
                 app:boxCornerRadiusTopEnd="@dimen/_20dp">
 
@@ -131,9 +156,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_15dp"
+                android:background="@drawable/bottom_border"
                 android:fontFamily="@font/sansita"
+                android:paddingStart="@dimen/_20dp"
+                android:paddingEnd="@dimen/_20dp"
                 android:text="@string/resgistrate"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -141,10 +169,10 @@
                 app:layout_constraintVertical_bias="0.138" />
 
 
-
-
         </LinearLayout>
 
 
     </com.google.android.material.card.MaterialCardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

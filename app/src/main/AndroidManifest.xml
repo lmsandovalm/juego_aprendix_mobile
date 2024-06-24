@@ -17,20 +17,20 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".navigation.MenuNavegacion"
-            android:exported="false" />
-
-        <activity
-            android:name=".Splash"
-            android:exported="true"
-            android:theme="@style/Theme.App.Starting">
+            android:name=".SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
+        </activity>
+        <activity
+            android:name=".navigation.MenuNavegacion"
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".ui.RegisterActivity"
             android:exported="false" />
@@ -41,6 +41,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <service android:name=".background.LifeRegenerationService" />
     </application>
 
 </manifest>

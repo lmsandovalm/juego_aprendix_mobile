@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/text_input_border.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/>
+            <stroke
+                android:width="2dp"
+                android:color="@color/azul_splash" />
+            <corners
+            android:bottomLeftRadius="@dimen/_15dp"
+            android:topRightRadius="@dimen/_15dp"/>
+        </shape>
+
+    </item>
+</selector>

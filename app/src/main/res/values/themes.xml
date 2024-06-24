@@ -7,23 +7,12 @@
         <item name="android:statusBarColor">@color/azul_splash</item>
     </style>
 
+    <!-- Tema base de tu aplicación -->
     <style name="Theme.Juego_aprendix_mobile" parent="Base.Theme.Juego_aprendix_mobile" />
 
-    <!--In themes-->
-    <!-- Style from splashScreen -->
-    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/azul_splash</item>
-        <item name="windowSplashScreenAnimatedIcon">
-            @drawable/splash
-        </item>
-        <item name="windowSplashScreenAnimationDuration">
-            1300
-        </item>
+    <!-- Estilo para la pantalla de inicio -->
 
-        <item name="postSplashScreenTheme">
-            @style/Theme.Juego_aprendix_mobile
-        </item>
-    </style>
+
 
     <style name="Theme.Juego_aprendix_mobile.NoActionBar">
         <item name="windowActionBar">false</item>

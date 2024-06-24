@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.QuestionsTopicFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/idBtnBackX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5dp"
+                android:padding="8dp"
+                android:src="@drawable/close" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:max="100"
+                android:padding="8dp"
+                android:progress="1"
+                android:progressDrawable="@drawable/custom_progress_bar" />
+
+            <ImageView
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_margin="@dimen/_5dp"
+                android:padding="5dp"
+                android:src="@drawable/corazon" />
+
+            <TextView
+                android:id="@+id/idTxtLife"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/sansita"
+                android:padding="2dp"
+                android:text="0"
+                android:textSize="22sp" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/explicacionpreguntas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            android:fontFamily="@font/sansita"
+            android:padding="@dimen/_10dp"
+            android:text="@string/questions_test" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_100dp"
+                android:layout_height="@dimen/_100dp"
+                android:layout_margin="@dimen/_15dp"
+                android:src="@drawable/circulo_logo__2_" />
+
+            <TextView
+                android:id="@+id/idQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10dp"
+                android:fontFamily="@font/sansita"
+                android:padding="@dimen/_10dp"
+                android:textAlignment="center"
+                tools:text="Pregunta 1" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/idOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            android:orientation="vertical"
+            android:padding="@dimen/_10dp">
+
+            <RadioButton
+                android:id="@+id/idResponseOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10dp"
+                android:background="@drawable/bottom_border"
+                android:elevation="@dimen/_10dp"
+                android:fontFamily="@font/aleo"
+                android:padding="@dimen/_10dp"
+                android:text="Opcion 1" />
+
+            <RadioButton
+                android:id="@+id/idResponseTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10dp"
+                android:background="@drawable/bottom_border"
+                android:elevation="@dimen/_10dp"
+                android:fontFamily="@font/aleo"
+                android:padding="@dimen/_10dp"
+                android:text="Opcion 2" />
+
+            <RadioButton
+                android:id="@+id/idResponseThree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10dp"
+                android:background="@drawable/bottom_border"
+                android:elevation="@dimen/_10dp"
+                android:fontFamily="@font/aleo"
+                android:padding="@dimen/_10dp"
+                android:text="Opcion 3" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnValidateCurrentQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            android:padding="@dimen/_10dp"
+            android:text="COMPROBAR" />
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/idProgressBarQuestions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

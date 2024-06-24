@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_navigation"
+    app:startDestination="@id/nav_cursos">
+
+    <fragment
+        android:id="@+id/nav_cursos"
+        android:name="com.laurasando.juego_aprendix_mobile.ui.fragments.CursosFragment"
+        android:label="Mis Cursos"
+        tools:layout="@layout/fragment_cursos" >
+        <action
+            android:id="@+id/action_nav_cursos_to_courseTopicsFragment"
+            app:destination="@id/courseTopicsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.laurasando.juego_aprendix_mobile.ui.fragments.PerfilFragment"
+        android:label="Mi Perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/nav_progreso"
+        android:name="com.laurasando.juego_aprendix_mobile.ui.fragments.ProgresoFragment"
+        android:label="Mi Progreso"
+        tools:layout="@layout/fragment_progreso" />
+    <fragment
+        android:id="@+id/courseTopicsFragment"
+        android:name="com.laurasando.juego_aprendix_mobile.ui.fragments.CourseTopicsFragment"
+        android:label="Tematicas"
+        tools:layout="@layout/fragment_course_topics" >
+        <action
+            android:id="@+id/action_courseTopicsFragment_to_questionsTopicFragment"
+            app:destination="@id/questionsTopicFragment" />
+        <argument
+            android:name="keyIdCourse"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionsTopicFragment"
+        android:name="com.laurasando.juego_aprendix_mobile.ui.fragments.QuestionsTopicFragment"
+        android:label="Preguntas"
+        tools:layout="@layout/fragment_questions_topic" >
+        <argument
+            android:name="keyIdTopic"
+            app:argType="string" />
+    </fragment>
+</navigation>

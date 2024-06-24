@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/_8dp"
+    app:cardCornerRadius="@dimen/_10dp"
+    app:cardElevation="@dimen/_8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/_20dp">
+
+        <ImageView
+            android:id="@+id/idImg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/idTxtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sin vidas"
+            android:fontFamily="@font/sansita"
+            android:textSize="@dimen/_15dp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/idTxtMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Te quedaste sin vidas"
+            android:fontFamily="@font/sansita"
+            android:textSize="@dimen/_15dp"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/idBtnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/next_action" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "966712791147",
-    "project_id": "juego-aprendix",
-    "storage_bucket": "juego-aprendix.appspot.com"
+    "project_number": "993379979062",
+    "project_id": "login-web-aprendix",
+    "storage_bucket": "login-web-aprendix.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:966712791147:android:f094eea13352129942612e",
+        "mobilesdk_app_id": "1:993379979062:android:5562ce5f15b69e081bad97",
         "android_client_info": {
           "package_name": "com.laurasando.juego_aprendix_mobile"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAFFGSdXTL4e6w8A2eE4VWZVIU2hJlynxg"
+          "current_key": "AIzaSyCTKbD5uZJ4Cfw0Yv7zdxqqxonQAILuCvY"
         }
       ],
       "services": {

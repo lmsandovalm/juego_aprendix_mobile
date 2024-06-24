@@ -12,7 +12,6 @@ class ApiClient {
             val interceptor = HttpLoggingInterceptor()
             interceptor.level = HttpLoggingInterceptor.Level.BODY
             val client = OkHttpClient.Builder()
-                // Añadir un interceptor para configurar el encabezado Content-Type como application/json
                 .addInterceptor { chain ->
                     val request = chain.request().newBuilder()
                         .addHeader("Content-Type", "application/json")
@@ -23,7 +22,7 @@ class ApiClient {
                 .build()
 
             return Retrofit.Builder()
-                .baseUrl("https://backend-final1.onrender.com/")
+                .baseUrl("https://nodebackend-vv0e.onrender.com/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

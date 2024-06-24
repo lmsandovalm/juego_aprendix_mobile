@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:elevation="@dimen/_10dp"
+    app:cardCornerRadius="@dimen/_15dp"
+    app:cardElevation="@dimen/_10dp"
+    android:layout_margin="@dimen/_10dp"
+    android:background="@color/tarjetas"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animLottie"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/errorx" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_background"
+            android:fontFamily="monospace"
+            android:text="@string/error"
+            android:layout_margin="@dimen/_5dp"
+            android:textAlignment="center"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_background"
+            android:fontFamily="monospace"
+            android:padding="@dimen/_5dp"
+            android:text="@string/usuario_o_contrase_a_inv_lidos"
+            android:textAlignment="center"
+            android:textSize="@dimen/_15dp" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

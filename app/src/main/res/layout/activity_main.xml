@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul_fondo"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <ImageView
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_20dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/white_background"
         app:strokeColor="@color/azul_borde"
         app:cardElevation="@dimen/_10dp"
         app:cardCornerRadius="@dimen/_15dp"
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_marginTop="@dimen/_10dp"
+            android:layout_margin="@dimen/_20dp"
             android:orientation="vertical">
 
 
@@ -47,6 +47,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_15dp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/sansita"
                 android:text="@string/nombre_usuario"
                 android:textSize="@dimen/_18sp"
@@ -62,6 +63,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_20dp"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/black"
+                android:textColorHint="@color/azul_splash"
                 app:boxCornerRadiusBottomStart="@dimen/_20dp"
                 android:hint="@string/hint_usuario"
                 app:boxCornerRadiusTopEnd="@dimen/_20dp">
@@ -80,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_15dp"
                 android:fontFamily="@font/sansita"
+                android:textColor="@color/black"
                 android:text="@string/contrase_a"
                 android:textSize="@dimen/_18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -96,8 +101,11 @@
                 android:layout_margin="@dimen/_20dp"
                 app:boxCornerRadiusBottomStart="@dimen/_20dp"
                 android:hint="@string/escribe_tu_contrase_a"
+                android:textColorHint="@color/azul_splash"
                 app:boxCornerRadiusTopEnd="@dimen/_20dp"
-                app:endIconMode="password_toggle">
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/azul_splash"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_contrasena_login"
@@ -111,10 +119,13 @@
                 android:id="@+id/btn_ingresar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_15dp"
+                android:layout_margin="@dimen/_10dp"
                 android:fontFamily="@font/sansita"
+                android:paddingStart="@dimen/_20dp"
+                android:paddingEnd="@dimen/_20dp"
                 android:text="@string/btn_inicia_sesion"
-                android:textColor="@color/white"
+                android:background="@drawable/bottom_border"
+                android:textColor="@color/azul_splash"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -122,13 +133,17 @@
                 app:layout_constraintVertical_bias="0.138" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_resgistro"
+                android:id="@+id/btnResgistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_15dp"
+                android:layout_margin="@dimen/_10dp"
+
                 android:fontFamily="@font/sansita"
                 android:text="@string/resgistrate"
-                android:textColor="@color/white"
+                android:paddingStart="@dimen/_20dp"
+                android:paddingEnd="@dimen/_20dp"
+                android:textColor="@color/azul_splash"
+                android:background="@drawable/bottom_border"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/btn_ingresar"
