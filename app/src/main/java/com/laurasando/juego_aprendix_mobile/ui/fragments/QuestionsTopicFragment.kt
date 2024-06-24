@@ -29,6 +29,7 @@ import com.laurasando.juego_aprendix_mobile.ui.dialogs.SuccessResultDialog
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.random.Random
 
 class QuestionsTopicFragment : Fragment() {
     private var idTopicParam = ""
@@ -43,6 +44,19 @@ class QuestionsTopicFragment : Fragment() {
     private lateinit var fsManager: FireStoreManager
     private var userId = ""
     private lateinit var sharedPrefs: SharePreferencesManager
+
+    private val arrayImages = arrayListOf<Int>(
+        R.drawable.pregunta0,
+        R.drawable.pregunta1,
+        R.drawable.pregunta2,
+        R.drawable.pregunta3,
+        R.drawable.pregunta4,
+        R.drawable.pregunta5,
+        R.drawable.pregunta6,
+        R.drawable.pregunta7,
+        R.drawable.pregunta8,
+        R.drawable.pregunta9,
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -116,6 +130,9 @@ class QuestionsTopicFragment : Fragment() {
             if (currentQuestionIndex < it.size) {
                 val question = it[currentQuestionIndex]
                 binding.idQuestion.text = question.question_text
+                val randomNumber = Random.nextInt(0, 10)
+                val imageRandom = arrayImages[randomNumber]
+                binding.idImgQuestion.setImageResource(imageRandom)
                 binding.explicacionpreguntas.text = question.description_text
                 binding.idResponseOne.text = question.question_answers.getOrNull(0)?.answer ?: ""
                 binding.idResponseTwo.text = question.question_answers.getOrNull(1)?.answer ?: ""
