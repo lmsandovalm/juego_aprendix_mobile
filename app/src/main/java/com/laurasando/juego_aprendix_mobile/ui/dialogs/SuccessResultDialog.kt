@@ -19,13 +19,15 @@ import com.laurasando.juego_aprendix_mobile.data.ApiClient
 import com.laurasando.juego_aprendix_mobile.data.interfaces.ApiServices
 import com.laurasando.juego_aprendix_mobile.data.local.SharePreferencesManager
 import com.laurasando.juego_aprendix_mobile.data.models.ranking.UserScoreModel
+import com.laurasando.juego_aprendix_mobile.data.network.FireStoreManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SuccessResultDialog : DialogFragment() {
+class SuccessResultDialog(private val idTopic: String) : DialogFragment() {
     private var scoreUser = "0"
     private lateinit var sharedPrefs: SharePreferencesManager
+    private lateinit var fsManager: FireStoreManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, android.R.style.Theme_Light_NoTitleBar)
@@ -50,8 +52,12 @@ class SuccessResultDialog : DialogFragment() {
         initial()
         val btnContinue = view.findViewById<Button>(R.id.idBtnContinue)
         btnContinue.setOnClickListener {
-            findNavController().navigateUp()
-            dismiss()
+            val userId = sharedPrefs.getPref("userId", "empty").toString()
+            fsManager = FireStoreManager()
+            fsManager.setQuestionComplete(userId, idTopic) {
+                findNavController().navigateUp()
+                dismiss()
+            }
         }
     }
 

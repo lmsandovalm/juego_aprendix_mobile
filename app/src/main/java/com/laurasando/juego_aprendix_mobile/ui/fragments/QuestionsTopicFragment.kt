@@ -33,6 +33,7 @@ import kotlin.random.Random
 
 class QuestionsTopicFragment : Fragment() {
     private var idTopicParam = ""
+    private var topicIsCompleted = false
     private val args: QuestionsTopicFragmentArgs by navArgs()
     private lateinit var binding: FragmentQuestionsTopicBinding
     private var questions: List<MovilQuestion>? = null
@@ -70,6 +71,7 @@ class QuestionsTopicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         idTopicParam = args.keyIdTopic
+        topicIsCompleted = args.isCompleted
         shrManager = SharePreferencesManager(requireContext())
         fsManager = FireStoreManager()
         sharedPrefs = SharePreferencesManager(requireContext())
@@ -92,7 +94,7 @@ class QuestionsTopicFragment : Fragment() {
 
         fsManager.getLifeByUserId(userId) { data ->
             if (data == null) {
-                Toast.makeText(requireContext(), "User life not found", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(requireContext(), "User life not found", Toast.LENGTH_SHORT).show()
             } else {
                 binding.idTxtLife.text = data.life
                 currentLife = data.life.toInt()
@@ -119,7 +121,6 @@ class QuestionsTopicFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<QuestionsTopicResponse>, t: Throwable) {
-                Toast.makeText(requireContext(), "Algo salio mal", Toast.LENGTH_SHORT).show()
                 binding.idProgressBarQuestions.visibility = View.GONE
             }
         })
@@ -158,6 +159,13 @@ class QuestionsTopicFragment : Fragment() {
         }
 
         if (selectedAnswer != null) {
+            if (currentLife == 0) {
+                showAlertDialog(
+                    "Oh no!",
+                    "Te has quedado sin vidas, regresa más tarde y sigue intentandolo",
+                    R.drawable.bad_r
+                )
+            }
             val currentQuestion = questions?.getOrNull(currentQuestionIndex)
             val correctAnswer =
                 currentQuestion?.question_answers?.firstOrNull { it.is_correct }?.answer
@@ -222,8 +230,8 @@ class QuestionsTopicFragment : Fragment() {
         layoutBinding.idImg.setImageResource(image)
 
         layoutBinding.idBtnContinue.setOnClickListener {
+            findNavController().navigateUp()
             dialog.dismiss()
-            dialog.cancel()
         }
 
         dialog.window?.setBackgroundDrawableResource(R.color.transparente)
@@ -232,31 +240,40 @@ class QuestionsTopicFragment : Fragment() {
     }
 
     private fun addPointsUser(score: Int) {
-        val userId = sharedPrefs.getPref("userId", "empty").toString()
-        val apiServices: ApiServices = ApiClient.retrofitHelper().create(ApiServices::class.java)
-        val body = AddPointsRequest(
-            userId,
-            score
-        )
-        apiServices.addPoints(body).enqueue(object : Callback<UserScoreModel?> {
-            override fun onResponse(
-                call: Call<UserScoreModel?>,
-                response: Response<UserScoreModel?>
-            ) {
-                if (response.isSuccessful) {
-                    val dialog = SuccessResultDialog()
-                    dialog.show(childFragmentManager, "SuccessResultDialog")
+        if (topicIsCompleted) {
+            showAlertDialog(
+                "Muy bien",
+                "Perdiste tu tiempo por que ya hiciste esta temática y no te sumaremos puntos jajajajaja",
+                R.drawable.pregunta2
+            )
+        } else {
+            val userId = sharedPrefs.getPref("userId", "empty").toString()
+            val apiServices: ApiServices =
+                ApiClient.retrofitHelper().create(ApiServices::class.java)
+            val body = AddPointsRequest(
+                userId,
+                score
+            )
+            apiServices.addPoints(body).enqueue(object : Callback<UserScoreModel?> {
+                override fun onResponse(
+                    call: Call<UserScoreModel?>,
+                    response: Response<UserScoreModel?>
+                ) {
+                    if (response.isSuccessful) {
+                        val dialog = SuccessResultDialog(idTopicParam)
+                        dialog.show(childFragmentManager, "SuccessResultDialog")
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<UserScoreModel?>, t: Throwable) {
-                Toast.makeText(
-                    requireContext(),
-                    "Algo salio mal guardando el score",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+                override fun onFailure(call: Call<UserScoreModel?>, t: Throwable) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Algo salio mal guardando el score",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
 
-        })
+            })
+        }
     }
 }

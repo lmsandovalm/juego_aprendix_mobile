@@ -44,5 +44,9 @@
         <argument
             android:name="keyIdTopic"
             app:argType="string" />
+        <argument
+            android:name="isCompleted"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
 </navigation>
