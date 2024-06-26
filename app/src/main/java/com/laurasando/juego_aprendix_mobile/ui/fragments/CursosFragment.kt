@@ -61,7 +61,7 @@ class CursosFragment : Fragment() {
             override fun onFailure(call: Call<CourseResponse>, t: Throwable) {
                 binding.idProgressCourses.visibility = View.GONE
                 Log.e("detalle", "onFailure: ${t.message}")
-                Toast.makeText(requireContext(), "Algosalio mal", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Algo salio mal", Toast.LENGTH_SHORT).show()
             }
 
         })

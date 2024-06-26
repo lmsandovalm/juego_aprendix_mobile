@@ -7,6 +7,17 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
+    <ProgressBar
+        android:id="@+id/idProgressBarLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="323dp"
@@ -24,21 +35,21 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_20dp"
         android:backgroundTint="@color/white_background"
-        app:strokeColor="@color/azul_borde"
-        app:cardElevation="@dimen/_10dp"
-        app:cardCornerRadius="@dimen/_15dp"
         android:elevation="@dimen/_10dp"
+        app:cardCornerRadius="@dimen/_15dp"
+        app:cardElevation="@dimen/_10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo">
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:strokeColor="@color/azul_borde">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_margin="@dimen/_20dp"
+            android:gravity="center"
             android:orientation="vertical">
 
 
@@ -47,33 +58,33 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_15dp"
-                android:textColor="@color/black"
                 android:fontFamily="@font/sansita"
                 android:text="@string/nombre_usuario"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.301"/>
+                app:layout_constraintVertical_bias="0.301" />
 
             <com.google.android.material.textfield.TextInputLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_20dp"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/black"
-                android:textColorHint="@color/azul_splash"
-                app:boxCornerRadiusBottomStart="@dimen/_20dp"
                 android:hint="@string/hint_usuario"
-                app:boxCornerRadiusTopEnd="@dimen/_20dp">
+                android:textColorHint="@color/azul_splash"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomStart="@dimen/_20dp"
+                app:boxCornerRadiusTopEnd="@dimen/_20dp"
+                app:boxStrokeColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_usuario_login"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -84,8 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_15dp"
                 android:fontFamily="@font/sansita"
-                android:textColor="@color/black"
                 android:text="@string/contrase_a"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,18 +110,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_20dp"
-                app:boxCornerRadiusBottomStart="@dimen/_20dp"
                 android:hint="@string/escribe_tu_contrase_a"
                 android:textColorHint="@color/azul_splash"
+                app:boxCornerRadiusBottomStart="@dimen/_20dp"
                 app:boxCornerRadiusTopEnd="@dimen/_20dp"
                 app:endIconMode="password_toggle"
-                app:endIconTint="@color/azul_splash"
-                >
+                app:endIconTint="@color/azul_splash">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_contrasena_login"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -120,11 +130,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
+                android:background="@drawable/bottom_border"
                 android:fontFamily="@font/sansita"
                 android:paddingStart="@dimen/_20dp"
                 android:paddingEnd="@dimen/_20dp"
                 android:text="@string/btn_inicia_sesion"
-                android:background="@drawable/bottom_border"
                 android:textColor="@color/azul_splash"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -138,12 +148,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
 
+                android:background="@drawable/bottom_border"
                 android:fontFamily="@font/sansita"
-                android:text="@string/resgistrate"
                 android:paddingStart="@dimen/_20dp"
                 android:paddingEnd="@dimen/_20dp"
+                android:text="@string/resgistrate"
                 android:textColor="@color/azul_splash"
-                android:background="@drawable/bottom_border"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/btn_ingresar"

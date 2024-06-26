@@ -29,6 +29,7 @@ import com.laurasando.juego_aprendix_mobile.ui.dialogs.SuccessResultDialog
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import showCustomSnackBar
 import kotlin.random.Random
 
 class QuestionsTopicFragment : Fragment() {
@@ -172,7 +173,7 @@ class QuestionsTopicFragment : Fragment() {
             if (selectedAnswer == correctAnswer) {
                 binding.progressBar.max = questions!!.size
                 incrementProgress()
-                Toast.makeText(requireContext(), "Correct answer!", Toast.LENGTH_SHORT).show()
+                binding.root.showCustomSnackBar("Respuesta Correcta!", R.drawable.marcos)
                 currentQuestionIndex++
                 showQuestion()
 
@@ -188,8 +189,10 @@ class QuestionsTopicFragment : Fragment() {
 
                 }
                 binding.idTxtLife.text = currentLife.toString()
-                Toast.makeText(requireContext(), "Wrong answer, try again!", Toast.LENGTH_SHORT)
-                    .show()
+                binding.root.showCustomSnackBar("Vaya! Tienes un error", R.drawable.mal)
+
+                //Toast.makeText(requireContext(), "Wrong answer, try again!", Toast.LENGTH_SHORT)
+                 //   .show()
                 if (currentLife == 0) {
                     showAlertDialog(
                         "Oh no!",
@@ -242,9 +245,9 @@ class QuestionsTopicFragment : Fragment() {
     private fun addPointsUser(score: Int) {
         if (topicIsCompleted) {
             showAlertDialog(
-                "Muy bien",
-                "Perdiste tu tiempo por que ya hiciste esta temática y no te sumaremos puntos jajajajaja",
-                R.drawable.pregunta2
+                "Haces muy bien en tomar un repaso!",
+                "Aunque lamentamos decirte que los repasos no reciben puntuacion extra",
+                R.drawable.jejeje
             )
         } else {
             val userId = sharedPrefs.getPref("userId", "empty").toString()

@@ -6,3 +6,5 @@ data class CourseResponse(
     val statusCode: Int,
     val totalResults: Int
 )
+
+

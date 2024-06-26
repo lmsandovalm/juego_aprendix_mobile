@@ -8,8 +8,10 @@ import com.laurasando.juego_aprendix_mobile.data.models.auth.LoginSuccessRespons
 import com.laurasando.juego_aprendix_mobile.data.models.auth.RegisterSuccessResponse
 import com.laurasando.juego_aprendix_mobile.data.models.courses.CourseResponse
 import com.laurasando.juego_aprendix_mobile.data.models.courses.topics.questions.QuestionsTopicResponse
+import com.laurasando.juego_aprendix_mobile.data.models.ranking.RankingResponse
 import com.laurasando.juego_aprendix_mobile.data.models.ranking.UserScoreModel
 import com.laurasando.juego_aprendix_mobile.data.models.ranking.request.AddPointsRequest
+import com.laurasando.juego_aprendix_mobile.data.models.user.UserInfoResponseModel
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -44,9 +46,6 @@ interface ApiServices {
      *Tematicas
      */
 
-    @GET("api-auth/api/tematicas/")
-    fun getAllTopics(): Call<List<TopicResponse>>
-
     @GET("movil/findTopicByIdWithQuestions/{id}")
     fun getDetailTopic(@Path("id") id: String): Call<QuestionsTopicResponse>
 
@@ -57,5 +56,14 @@ interface ApiServices {
     @GET("ranking/user-score/{id}")
     fun getUserScore(@Path("id") id: String): Call<UserScoreModel>
 
+    @GET("ranking/all-user-scores")
+    fun getAllScore(): Call<RankingResponse>
 
+
+    /**
+     * Users
+     * */
+
+    @GET("users/find/{id}")
+    fun getInfoUser(@Path("id") id: String): Call<UserInfoResponseModel>
 }

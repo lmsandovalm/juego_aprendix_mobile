@@ -4,7 +4,6 @@ import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.laurasando.juego_aprendix_mobile.data.models.UserTopicCompleteResponse
 import com.laurasando.juego_aprendix_mobile.data.models.user.UserLifeModel
-import com.google.firebase.firestore.ktx.toObject
 
 class FireStoreManager {
     fun getLifeByUserId(userId: String, callback: (UserLifeModel?) -> Unit) {
@@ -78,14 +77,12 @@ class FireStoreManager {
             }
     }
 
-
     fun setInfoUser(userId: String): Boolean {
 
         val fs = FirebaseFirestore.getInstance()
         val user = hashMapOf(
             "userId" to userId,
-            "life" to "5",
-            "time_elapsed" to "",
+            "life" to "5"
         )
         fs.collection("user_life")
             .add(user).addOnCompleteListener { task ->
@@ -109,6 +106,30 @@ class FireStoreManager {
 
             }.addOnFailureListener {
                 callback(false)
+            }
+    }
+
+    fun setInfoUserIfNoExists(userId: String, callback: (Boolean) -> Unit) {
+
+        val fs = FirebaseFirestore.getInstance()
+        fs.collection("user_life")
+            .whereEqualTo("userId", userId)
+            .get().addOnCompleteListener { task ->
+                val document = task.result?.documents?.firstOrNull()
+                if (document == null) {
+                    val user = hashMapOf(
+                        "userId" to userId,
+                        "life" to "5",
+                    )
+                    fs.collection("user_life")
+                        .add(user).addOnCompleteListener { taskInsert ->
+                            callback(taskInsert.isSuccessful)
+                        }.addOnFailureListener {
+                            callback(false)
+                        }
+                } else {
+                    callback(true)
+                }
             }
     }
 

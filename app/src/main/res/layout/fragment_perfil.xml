@@ -27,7 +27,7 @@
     <!-- Stats Layout -->
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/idImgProfile"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/circulo_logo__2_"
@@ -40,34 +40,34 @@
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.Chip" />
 
     <TextView
-        android:id="@+id/profile_name"
+        android:id="@+id/idProfileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/sansita"
         android:text="Aprendix"
-        android:textColor="@color/black"
+        android:textColor="@color/texto"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image"
+        app:layout_constraintTop_toBottomOf="@+id/idImgProfile"
         app:layout_constraintVertical_bias="0.168" />
 
     <TextView
-        android:id="@+id/profile_username"
+        android:id="@+id/idEmailProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/sansita"
         android:text="Nombre de Usuario"
-        android:textColor="@color/black"
+        android:textColor="@color/texto"
 
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/stats_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+        app:layout_constraintTop_toBottomOf="@+id/idProfileName" />
 
     <LinearLayout
         android:id="@+id/stats_layout"
@@ -85,59 +85,8 @@
 
         <!-- Score Card -->
         <androidx.cardview.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="70dp"
-            android:layout_margin="8dp"
-            android:elevation="@dimen/_10dp"
-            android:padding="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="@dimen/_10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/_5dp"
-                android:padding="@dimen/_5dp"
-                android:src="@drawable/ligero" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/aleo"
-                            android:padding="@dimen/_8dp"
-                            android:text="Score"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/aleo"
-                            android:padding="@dimen/_8dp"
-                            android:text="0"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
-
-                    </LinearLayout>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- Lives Card -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:elevation="@dimen/_10dp"
             android:padding="16dp"
@@ -152,21 +101,96 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/_5dp"
-                    android:padding="@dimen/_5dp"
-                    android:src="@drawable/corazon" />
+                    android:layout_marginStart="@dimen/_15dp"
+                    android:layout_marginEnd="@dimen/_15dp"
+                    android:src="@drawable/relampagos" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/_8dp"
-                    android:text="Vidas"
-                    android:fontFamily="@font/aleo"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aleo"
+                        android:layout_marginEnd="@dimen/_15dp"
+                        android:layout_marginStart="@dimen/_15dp"
+                        android:padding="@dimen/_8dp"
+                        android:text="Score"
+                        android:textColor="@color/texto"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/idTxtScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aleo"
+                        android:padding="@dimen/_8dp"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/texto"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
+        </androidx.cardview.widget.CardView>
+
+        <!-- Lives Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:elevation="@dimen/_10dp"
+            android:padding="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="@dimen/_10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_15dp"
+                    android:src="@drawable/corazon" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aleo"
+                        android:padding="@dimen/_8dp"
+                        android:text="Vidas"
+                        android:layout_marginEnd="@dimen/_15dp"
+                        android:layout_marginStart="@dimen/_15dp"
+                        android:textColor="@color/texto"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/idTxtLife"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aleo"
+                        android:padding="@dimen/_8dp"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/texto"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
 
 
         </androidx.cardview.widget.CardView>

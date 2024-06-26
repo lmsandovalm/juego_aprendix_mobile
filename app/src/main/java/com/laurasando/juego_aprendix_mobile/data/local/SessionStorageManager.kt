@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import java.lang.IllegalArgumentException
 
 
-class SharePreferencesManager (context: Context) {
+class SharePreferencesManager(context: Context) {
 
     private val sharedPreferences: SharedPreferences by lazy {
         context.getSharedPreferences("DB_APRENDIX_LOCAL", Context.MODE_PRIVATE)
@@ -25,20 +25,24 @@ class SharePreferencesManager (context: Context) {
     }
 
     fun getPref(key: String, defaultValue: Any): Any {
-        return when(defaultValue){
+        return when (defaultValue) {
             is String -> sharedPreferences.getString(key, defaultValue)
             is Int -> sharedPreferences.getInt(key, defaultValue)
             is Boolean -> sharedPreferences.getBoolean(key, defaultValue)
-            is Float-> sharedPreferences.getFloat(key, defaultValue)
+            is Float -> sharedPreferences.getFloat(key, defaultValue)
             is Long -> sharedPreferences.getLong(key, defaultValue)
             else -> throw IllegalArgumentException("No se puede obtener este tipo de dato")
         }!!
     }
 
-    fun remove(key: String){
-        val editor =sharedPreferences.edit()
+    fun remove(key: String) {
+        val editor = sharedPreferences.edit()
         editor.remove(key)
         editor.apply()
+    }
+
+    fun clear() {
+        sharedPreferences.edit().clear().apply()
     }
 
 }

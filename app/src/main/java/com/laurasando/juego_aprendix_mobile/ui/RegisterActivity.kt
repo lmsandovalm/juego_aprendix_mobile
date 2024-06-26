@@ -6,18 +6,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.gson.Gson
 import com.laurasando.juego_aprendix_mobile.MainActivity
+import com.laurasando.juego_aprendix_mobile.R
 import com.laurasando.juego_aprendix_mobile.data.ApiClient
 import com.laurasando.juego_aprendix_mobile.data.interfaces.ApiServices
 import com.laurasando.juego_aprendix_mobile.data.models.RegisterRequest
-import com.laurasando.juego_aprendix_mobile.data.models.UserModel
-import com.laurasando.juego_aprendix_mobile.data.models.UserResponse
 import com.laurasando.juego_aprendix_mobile.data.models.auth.RegisterSuccessResponse
 import com.laurasando.juego_aprendix_mobile.data.models.errors.ErrorsValidation
 import com.laurasando.juego_aprendix_mobile.data.network.AuthRemoteFirebase
 import com.laurasando.juego_aprendix_mobile.data.network.FireStoreManager
 import com.laurasando.juego_aprendix_mobile.databinding.ActivityRegisterBinding
+import com.laurasando.juego_aprendix_mobile.databinding.AlertsRegisterBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,6 +35,22 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initUI()
+
+    }
+
+
+    private fun showAlertSocialMedia() {
+        val dialogSocialMedia =
+            AlertsRegisterBinding.inflate(LayoutInflater.from(this))
+        val alertDialogSocial = AlertDialog.Builder(this).apply {
+            setView(dialogSocialMedia.root)
+            setCancelable(true)
+        }.create()
+        alertDialogSocial.dismiss()
+
+        alertDialogSocial.window?.setBackgroundDrawableResource(R.color.transparente)
+
+        alertDialogSocial.show()
 
     }
 
@@ -88,6 +105,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun initUI() {
         setUpClickListener()
+        showAlertSocialMedia()
     }
 
 

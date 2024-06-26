@@ -60,6 +60,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    implementation("com.google.android.material:material:1.6.0")
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
     implementation("com.google.firebase:firebase-auth")
@@ -68,7 +69,7 @@ dependencies {
     // Splash Screen
     implementation ("androidx.core:core-splashscreen:1.0.0")
 
-    //implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.24")
 
     //Navegacion

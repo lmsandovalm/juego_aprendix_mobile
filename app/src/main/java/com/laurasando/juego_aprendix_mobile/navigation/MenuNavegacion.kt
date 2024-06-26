@@ -17,6 +17,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import com.laurasando.juego_aprendix_mobile.MainActivity
 import com.laurasando.juego_aprendix_mobile.R
 import com.laurasando.juego_aprendix_mobile.background.LifeRegenerationService
 import com.laurasando.juego_aprendix_mobile.data.local.SharePreferencesManager
@@ -52,13 +53,12 @@ class MenuNavegacion : AppCompatActivity() {
         val textViewCorreoUsuario = headerView.findViewById<TextView>(R.id.txt_menuDes_correo)
 
 
-        //recupero los datos
-        val nombreUsuario = intent.getStringExtra("nombreUsuario")
-        val correoUsuario = intent.getStringExtra("correoUsuario")
+        val nameUser = shrManager.getPref("nameUser", "Empty").toString()
+        val emailUser = shrManager.getPref("emailUser", "Empty").toString()
 
         //asigno los datos a los textview
-        textViewNombreUsuario.text = nombreUsuario
-        textViewCorreoUsuario.text = correoUsuario
+        textViewNombreUsuario.text = nameUser
+        textViewCorreoUsuario.text = emailUser
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -94,12 +94,18 @@ class MenuNavegacion : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_salir -> Toast.makeText(this, "Sesion Cerrada", Toast.LENGTH_SHORT).show()
+            R.id.nav_salir -> logout()
         }
         //return super.onOptionsItemSelected(item)
         return false
     }
 
+    private fun logout() {
+        shrManager.clear()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
     /*###########################################################################################*/
     /*private lateinit var drawerLayout: DrawerLayout
     private lateinit var binding: ActivityMenuNavegacionBinding
